@@ -1,229 +1,951 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sushant Portfolio Website</title>
-        <link rel="icon" type="image/svg" href="images/code-solid.svg">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
-        
-        <!-- Update these with your own fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
-        
-        <link rel="stylesheet" href="styles.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushant Portfolio Website</title>
+    <link rel="icon" type="image/svg" href="images/code-solid.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous">  
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Improved CSS with better organization and enhancements */
+        :root {
+            --ff-primary: 'Source Sans Pro', sans-serif;
+            --ff-secondary: 'Source Code Pro', monospace;
+            
+            --fw-light: 300;
+            --fw-reg: 400;
+            --fw-bold: 600;
+            --fw-black: 700;
+            
+            --clr-light: #ffffff;
+            --clr-dark: #0f0f23;
+            --clr-accent: #00d9ff;
+            --clr-accent-dark: #0099cc;
+            --clr-gray: #f8fafc;
+            --clr-gray-dark: #64748b;
+            --clr-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            
+            --fs-h1: clamp(2.5rem, 8vw, 4rem);
+            --fs-h2: clamp(2rem, 6vw, 3rem);
+            --fs-h3: clamp(1.25rem, 4vw, 1.75rem);
+            --fs-body: clamp(1rem, 2vw, 1.125rem);
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            --border-radius: 1rem;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    </head>
-    <body>
-        <header>
-            <div class="logo">
-                <img src="images/SMSdev.png" alt="logo for website">
-            </div>
-            <div><a href="SushantShrestha.pdf" target="_blank" class="btn btn-code">Resume</a></div>
-                </div>
-            <label class="menu-button-wrapper" for="">
-                <input type="checkbox" class="menu-button">
-                <div class="icon-wrapper">
-                    <label class="hamburger">
-                        <input class="hamburger-input" type="checkbox">
-                        <span class="hamburger-line first"></span>
-                        <span class="hamburger-line second"></span>
-                        <span class="hamburger-line third"></span>
-                    </label>
-                </div>
-                <div class="item-list">
-                    <div><a href="#home" style="color: inherit;">Home</a></div>
-                    <div><a href="#about" style="color: inherit;">About me</a></div>
-                    <div><a href="#experience" style="color: inherit;">Experience</a></div>
-                    <div><a href="#work" style="color: inherit;">Portfolio</a></div>
-                </div>
-                   
-                    
-            </label>
-        </header>
-        
-        <!-- Introduction -->
-        <section class="intro" id="home">
-            <h1 class="section__title section__title--intro">
-                Hi, I am <strong>Sushant Man Shrestha</strong>
-            </h1>
-            <p class="section__subtitle section__subtitle--intro">Full Stack Developer with Cloud Expertise</p>
-            <img src="images/LinkedinProfile.jpeg" alt="a picture of sushant" class="intro__img">
-        </section>
-        
-        
-        
-        <!-- About me -->
-        <section class="about-me" id="about">
-           <h2 class="section__title section__title--about">Who I am</h2>
-           <p class="section__subtitle section__subtitle--about">A Student and Developer</p>
-           
-           <div class="about-me__body">
-               <p>
-                Hello! I'm Sushant Shrestha, a software engineer pursuing a B.Sc. in Computer Information Technology at Northern Kentucky University. I've received several scholarships and gained experience as a College of Informatics Ambassador and Human Computer Interaction Lab member.
+        /* Reset and base styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
+        html {
+            scroll-behavior: smooth;
+            font-size: 100%;
+        }
 
-               </p>
-               <p>
-                Currently, I'm a Software Engineering Fellow at Headstarter, building AI applications and APIs with technologies like NextJS, OpenAI, Pinecone, and StripeAPI. I've led a team of engineering fellows and enjoy mentoring and collaborating with others. As a PLUS Tutor at NKU, I've helped students succeed academically. My portfolio showcases my work and skills, reflecting my passion for technology and commitment to excellence.
-               </p>
-           </div>
-           
-           <img src="images/SMS.jpg" alt="Sushant posing" class="about-me__img">
-        </section>
+        body {
+            background: var(--clr-light);
+            color: var(--clr-dark);
+            font-family: var(--ff-primary);
+            font-size: var(--fs-body);
+            line-height: 1.6;
+            font-weight: var(--fw-reg);
+            overflow-x: hidden;
+        }
 
-   
-      <!-- Skills -->
-      <section class="skills" id="skills">
-       
-        <article class="wrapper">
-            <div class="marquee">
-                <div class="marquee-content">
-                    <div class="marquee__group">
-                        <i class="fab fa-react"></i>
-                        <i class="fas fa-server"></i>
-                        <i class="fab fa-node"></i>
-                        <i class="fab fa-html5"></i>
-                        <i class="fab fa-css3-alt"></i>
-                        <i class="fas fa-database"></i> <!-- MongoDB and SQL -->
-                        <i class="fab fa-aws"></i>
-                        <i class="fab fa-linux"></i>
-                        <i class="fab fa-github"></i>
-                        <i class="fab fa-python"></i>
-                        <i class="fab fa-js"></i>
-                        <i class="fab fa-java"></i>
-                    </div>
-                    <div class="marquee__group">
-                        <i class="fab fa-react"></i>
-                        <i class="fas fa-server"></i>
-                        <i class="fab fa-node"></i>
-                        <i class="fab fa-html5"></i>
-                        <i class="fab fa-css3-alt"></i>
-                        <i class="fas fa-database"></i>
-                        <i class="fab fa-aws"></i>
-                        <i class="fab fa-linux"></i>
-                        <i class="fab fa-github"></i>
-                        <i class="fab fa-python"></i>
-                        <i class="fab fa-js"></i>
-                        <i class="fab fa-java"></i>
-                    </div>
-                </div>
-            </div>
-        </article>
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            font-weight: var(--fw-black);
+        }
+
+        h1 { font-size: var(--fs-h1); }
+        h2 { font-size: var(--fs-h2); }
+        h3 { font-size: var(--fs-h3); }
+
+        .section__title {
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section__title::after {
+            content: '';
+            position: absolute;
+            bottom: -0.75rem;
+            left: 0;
+            width: 4rem;
+            height: 4px;
+            background: var(--clr-gradient);
+            border-radius: 2px;
+        }
+
+        .section__subtitle {
+            margin: 0 0 1.5rem 0;
+            font-size: var(--fs-h3);
+            font-weight: var(--fw-light);
+            color: var(--clr-gray-dark);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        strong { 
+            font-weight: var(--fw-bold);
+            color: var(--clr-accent-dark);
+        }
+
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            background: var(--clr-accent);
+            color: var(--clr-dark);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            font-weight: var(--fw-bold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: var(--fw-black);
+            color: var(--clr-dark);
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        /* Navigation */
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .nav-toggle-label span {
+            width: 25px;
+            height: 3px;
+            background: var(--clr-dark);
+            margin: 2px 0;
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--clr-dark);
+            text-decoration: none;
+            font-weight: var(--fw-bold);
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--clr-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .header-btn {
+            margin-left: 1.5rem;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+            
+            .nav-toggle-label {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+            
+            .nav-toggle:checked ~ .nav-menu {
+                transform: translateX(0);
+            }
+            
+            .header-btn {
+                display: none;
+            }
+            
+            /* Animate hamburger to X */
+            .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+
+        /* Introduction Section */
+        .intro {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--clr-gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
+        }
+
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro h1 {
+            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+        }
+
+        .intro .section__subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: clamp(1.2rem, 4vw, 1.75rem);
+            margin-bottom: 2.5rem;
+        }
+
+        .intro__img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 2.5rem auto;
+            box-shadow: var(--shadow-xl);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .intro__img:hover {
+            transform: scale(1.03);
+        }
+
+        /* About Section */
+        .about-me {
+            background: var(--clr-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-me__img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .about-me__img:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+            
+            .about-me__img {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Skills Section */
+        .skills {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .marquee-wrapper::before,
+        .marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, var(--clr-light) 0%, transparent 100%);
+        }
+
+        .marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, var(--clr-light) 0%, transparent 100%);
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee-scroll 25s linear infinite;
+            padding: 1rem 0;
+        }
+
+        .skill-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--clr-accent-dark);
+            margin: 0 1.5rem;
+            transition: var(--transition);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(0, 217, 255, 0.1);
+        }
+
+        .skill-icon:hover {
+            color: var(--clr-accent);
+            transform: scale(1.15) translateY(-5px);
+            background: rgba(0, 217, 255, 0.2);
+        }
+
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Experience Section */
+        .experience {
+            background: var(--clr-gray);
+        }
+
+        .experience__list {
+            margin-top: 3rem;
+        }
+
+        .experience__item {
+            position: relative;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            background: var(--clr-light);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--clr-accent);
+            transition: var(--transition);
+        }
+
+        .experience__item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .experience__role {
+            font-size: 1.5rem;
+            font-weight: var(--fw-bold);
+            color: var(--clr-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience__company {
+            color: var(--clr-accent-dark);
+            font-weight: var(--fw-bold);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience__duration {
+            color: var(--clr-gray-dark);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 217, 255, 0.1);
+            border-radius: 1rem;
+        }
+
+        .experience__desc {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience__desc li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .experience__desc li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--clr-accent);
+            font-weight: bold;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio__item {
+            background: var(--clr-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio__item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .portfolio__img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio__item:hover .portfolio__img {
+            transform: scale(1.05);
+        }
+
+        .portfolio__desc {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio__desc h4 {
+            font-size: 1.35rem;
+            font-weight: var(--fw-bold);
+            margin-bottom: 1rem;
+        }
+
+        .portfolio__desc p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .portfolio__buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .portfolio {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio__buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--clr-dark);
+            color: var(--clr-light);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .social-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 0;
+            margin-bottom: 2.5rem;
+        }
+
+        .social-list__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: var(--clr-accent);
+            color: var(--clr-dark);
+            border-radius: 50%;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.35rem;
+        }
+
+        .social-list__link:hover {
+            background: var(--clr-light);
+            transform: translateY(-5px);
+        }
+
+        .footer__copyright {
+            color: var(--clr-gray-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--clr-accent);
+            color: var(--clr-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .skill-icon {
+                font-size: 2.75rem;
+                margin: 0 1rem;
+                width: 60px;
+                height: 60px;
+            }
+            
+            .experience__item {
+                padding: 1.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro h1 {
+                font-size: 2.5rem;
+            }
+            
+            .intro__img {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .section__title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SMS.dev</div>
+        
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#work">Portfolio</a></li>
+            </ul>
+        </nav>
+        
+        <a href="SushantShrestha.pdf" target="_blank" class="btn header-btn">
+            <i class="fas fa-download"></i>
+            Resume
+        </a>
+    </header>
+    
+    <!-- Introduction -->
+    <section class="intro" id="home">
+        <div class="intro-content">
+            <h1>Hi, I'm <strong>Sushant Man Shrestha</strong></h1>
+            <p class="section__subtitle">Full Stack Developer with Cloud Expertise</p>
+            <img src="images/LinkedinProfile.jpeg" alt="Sushant Man Shrestha" class="intro__img">
+        </div>
     </section>
     
+    <!-- About me -->
+    <section class="about-me" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section__title">Who I Am</h2>
+                    <p class="section__subtitle">A Student and Developer</p>
+                    
+                    <p>
+                        Hello! I'm Sushant Shrestha, a software engineer pursuing a B.Sc. in Computer Information Technology at Northern Kentucky University. I've received several scholarships and gained experience as a College of Informatics Ambassador and Human Computer Interaction Lab member.
+                    </p>
+                    <p>
+                        Currently, I'm a Software Engineering Fellow at Headstarter, building AI applications and APIs with technologies like NextJS, OpenAI, Pinecone, and StripeAPI. I've led a team of engineering fellows and enjoy mentoring and collaborating with others. As a PLUS Tutor at NKU, I've helped students succeed academically. My portfolio showcases my work and skills, reflecting my passion for technology and commitment to excellence.
+                    </p>
+                </div>
+                <img src="images/SMS.jpg" alt="Sushant posing" class="about-me__img">
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section__title">Technical Skills</h2>
+            <div class="marquee-wrapper">
+                <div class="marquee">
+                    <i class="fab fa-react skill-icon" title="React"></i>
+                    <i class="fas fa-server skill-icon" title="Backend Development"></i>
+                    <i class="fab fa-node skill-icon" title="Node.js"></i>
+                    <i class="fab fa-html5 skill-icon" title="HTML5"></i>
+                    <i class="fab fa-css3-alt skill-icon" title="CSS3"></i>
+                    <i class="fas fa-database skill-icon" title="Database"></i>
+                    <i class="fab fa-aws skill-icon" title="AWS"></i>
+                    <i class="fab fa-linux skill-icon" title="Linux"></i>
+                    <i class="fab fa-github skill-icon" title="GitHub"></i>
+                    <i class="fab fa-python skill-icon" title="Python"></i>
+                    <i class="fab fa-js skill-icon" title="JavaScript"></i>
+                    <i class="fab fa-java skill-icon" title="Java"></i>
+                    <!-- Duplicate for seamless scroll -->
+                    <i class="fab fa-react skill-icon" title="React"></i>
+                    <i class="fas fa-server skill-icon" title="Backend Development"></i>
+                    <i class="fab fa-node skill-icon" title="Node.js"></i>
+                    <i class="fab fa-html5 skill-icon" title="HTML5"></i>
+                    <i class="fab fa-css3-alt skill-icon" title="CSS3"></i>
+                    <i class="fas fa-database skill-icon" title="Database"></i>
+                    <i class="fab fa-aws skill-icon" title="AWS"></i>
+                    <i class="fab fa-linux skill-icon" title="Linux"></i>
+                    <i class="fab fa-github skill-icon" title="GitHub"></i>
+                    <i class="fab fa-python skill-icon" title="Python"></i>
+                    <i class="fab fa-js skill-icon" title="JavaScript"></i>
+                    <i class="fab fa-java skill-icon" title="Java"></i>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- Experience Section -->
-        <section class="experience" id="experience">
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
             <h2 class="section__title">Experience</h2>
-            <p class="section__subtitle"></p>
             
             <div class="experience__list">
-                <!-- Experience item 01 -->
                 <div class="experience__item">
                     <h3 class="experience__role">Software Engineering Fellow</h3>
-                    <p class="experience__company">HeadstarterAI </p>
-                    <p class="experience__duration">June 2024 - Present</p>
+                    <p class="experience__company">HeadstarterAI</p>
+                    <span class="experience__duration">June 2024 - Present</span>
                     <ul class="experience__desc">
                         <li>Building 5+ AI apps and APIs using NextJS, OpenAI, Pinecone, StripeAPI with 98% accuracy as seen by 1000 users</li>
                         <li>Developing projects from design to deployment, leading 4+ engineering fellows using MVC design patterns</li>
-                        <li>Receiving coaching from Amazon, Bloomberg, and Capital One engineers on Agile, CI/CD, Git, and microservice
-                            patterns</li>
+                        <li>Receiving coaching from Amazon, Bloomberg, and Capital One engineers on Agile, CI/CD, Git, and microservice patterns</li>
                     </ul>
                 </div>
                 
-                <!-- Experience item 02 -->
                 <div class="experience__item">
                     <h3 class="experience__role">Research Assistant</h3>
                     <p class="experience__company">College Of Informatics</p>
-                    <p class="experience__duration">May 2024 - Present</p>
+                    <span class="experience__duration">May 2024 - Present</span>
                     <ul class="experience__desc">
                         <li>Developed multiple functionalities of a website, including a multi-functional navigation bar and a remediation assignment feature</li>
                         <li>Designed and distributed a survey to collect data for research purposes, and analyzed responses to derive actionable insights</li>
                         <li>Collaborated effectively within a team of 4-7 members to achieve project objectives</li>
                     </ul>
                 </div>
-                
-                <!-- Add more experience items as needed -->
-               
             </div>
-        </section>
+        </div>
+    </section>
 
-        
-        <!-- My Work -->
-        <section class="my-work" id="work">
+    <!-- My Work -->
+    <section class="my-work" id="work">
+        <div class="container">
             <h2 class="section__title">Projects</h2>
-            <p class="section__subtitle"></p>
             
             <div class="portfolio">
-                <!-- Portfolio item 01 -->
                 <div class="portfolio__item">
-                    <img src="images/FidelityFinance.png" alt="" class="portfolio__img">
+                    <img src="images/FidelityFinance.png" alt="Fidelity Finance Project" class="portfolio__img">
                     <div class="portfolio__desc">
                         <h4>Fidelity Finance</h4>
+                        <p>A comprehensive financial management application built with modern web technologies.</p>
                         <div class="portfolio__buttons">
-                            
-                            <a href="https://www.youtube.com/watch?v=eP0Rq9L_J0Y" target="_blank" class="btn btn-preview">Preview</a>
+                            <a href="https://www.youtube.com/watch?v=eP0Rq9L_J0Y" target="_blank" class="btn">
+                                <i class="fas fa-play"></i>
+                                Preview
+                            </a>
+                            <a href="#" class="btn" style="background: var(--clr-gray-dark);">
+                                <i class="fas fa-code"></i>
+                                Code
+                            </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Portfolio item 02 -->
                 <div class="portfolio__item">
-                    <img src="images/ApartmentReviews.png" alt="" class="portfolio__img">
+                    <img src="images/ApartmentReviews.png" alt="Apartment Reviews Project" class="portfolio__img">
                     <div class="portfolio__desc">
                         <h4>Apartment Reviews</h4>
+                        <p>A platform for apartment reviews and ratings to help users make informed housing decisions.</p>
                         <div class="portfolio__buttons">
-                            
-                            <a href="https://www.youtube.com/watch?v=PEuphPQQsKQ"  target="_blank" class="btn btn-preview">Preview</a>
+                            <a href="https://www.youtube.com/watch?v=PEuphPQQsKQ" target="_blank" class="btn">
+                                <i class="fas fa-play"></i>
+                                Preview
+                            </a>
+                            <a href="#" class="btn" style="background: var(--clr-gray-dark);">
+                                <i class="fas fa-code"></i>
+                                Code
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <ul class="social-list">
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://github.com/Sushantsth21" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://www.linkedin.com/in/sushant-shrestha-b51785228/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a href="mailto:sushant.shrestha003@gmail.com" class="social-list__link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </li>
+        </ul>
+        <div class="footer__copyright">
+            &copy; 2024 Sushant Man Shrestha. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll to top -->
+    <a href="#home" class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Scroll to top functionality
+        const scrollTop = document.querySelector('.scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('active');
+            } else {
+                scrollTop.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
                 
-                <!-- Portfolio item 03
-                <div class="portfolio__item">
-                    <img src="img/portfolio-03.jpg" alt="" class="portfolio__img">
-                    <div class="portfolio__desc">
-                        <p>Project description goes here. This is an example of a project that showcases skills and abilities.</p>
-                        <div class="portfolio__buttons">
-                            <a href="#" class="btn btn-code">Code</a>
-                            <a href="#" class="btn btn-preview">Preview</a>
-                        </div>
-                    </div>
-                </div>
-                 -->
-            </div>
-        </section>
-        
-        
-        <!-- Footer -->
-        <footer class="footer">
-            <!-- replace with your own email address -->
-            <ul class="social-list">
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://github.com/Sushantsth21">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.linkedin.com/in/sushant-shrestha-b51785228/">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </li>
-                <li class="social-list__item">
-                    <a href="mailto:sushant.shrestha003@gmail.com" class="footer__link">
-                        <i class="fab fa-google"></i>
-                    </a>
-                </li>
-            </ul>
-            <div class="footer__copyright">
-                &copy; 2024 Sushant Man Shrestha. All rights reserved.
-            </div>
-        </footer>
-
-        <script src="index.js"></script>
-        
-    </body>
+                // Close mobile menu if open
+                document.getElementById('nav-toggle').checked = false;
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
 </html>
-
